@@ -1,0 +1,81 @@
+{
+  "name": "internet-roadtrip-userscript-template",
+  "version": "0.0.0",
+  "description": "A template userscript for neal.fun/internet-roadtrip",
+  "author": "Netux",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "_rollup": "rollup --config rollup.config.ts --configPlugin typescript",
+    "dev": "npm run _rollup -- --watch",
+    "clean": "del-cli dist",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "ci": "run-s lint",
+    "build:js": "npm run _rollup",
+    "build": "cross-env NODE_ENV=production run-s ci clean build:js"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.24.1",
+    "@violentmonkey/dom": "2.2.1",
+    "@violentmonkey/ui": "0.7.9",
+    "internet-roadtrip-framework": "0.4.1-beta",
+    "solid-js": "^1.8.16"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/plugin-transform-react-jsx": "^7.25.9",
+    "@babel/plugin-transform-runtime": "^7.25.9",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
+    "@rollup/plugin-alias": "^5.1.1",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.2",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-replace": "^6.0.2",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^24.2.1",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "@typescript-eslint/parser": "^8.18.1",
+    "@violentmonkey/types": "^0.2.0",
+    "autoprefixer": "^10.4.20",
+    "babel-preset-solid": "^1.9.3",
+    "commander": "^12.1.0",
+    "cross-env": "^7.0.3",
+    "del-cli": "^6.0.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.49",
+    "postcss-calc": "^10.0.2",
+    "postcss-nested": "^7.0.2",
+    "prettier": "^3.4.2",
+    "read-package-up": "^11.0.0",
+    "rollup": "^4.29.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-tla": "^0.0.2",
+    "rollup-plugin-userscript": "^1.0.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.42.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.css": [
+      "prettier --write"
+    ]
+  }
+}
