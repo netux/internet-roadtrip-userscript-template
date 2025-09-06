@@ -71,11 +71,11 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
+      "eslint",
+      "prettier"
     ],
     "*.css": [
-      "prettier --write"
+      "prettier"
     ]
   }
 }
